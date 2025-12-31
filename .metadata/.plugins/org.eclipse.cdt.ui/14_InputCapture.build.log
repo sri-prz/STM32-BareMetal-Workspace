@@ -1,0 +1,18 @@
+01:24:36 **** Build of configuration Debug for project 14_InputCapture ****
+make -j7 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Include -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Include -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/tim.d" -MT"Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/tim.o"
+arm-none-eabi-gcc -o "14_InputCapture.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/sheen/Documents/STM32-BareMetal-Workspace/14_InputCapture/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="14_InputCapture.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 14_InputCapture.elf
+ 
+arm-none-eabi-size  14_InputCapture.elf 
+arm-none-eabi-objdump -h -S 14_InputCapture.elf  > "14_InputCapture.list"
+   text	   data	    bss	    dec	    hex	filename
+   1008	      0	   1568	   2576	    a10	14_InputCapture.elf
+Finished building: default.size.stdout
+ 
+Finished building: 14_InputCapture.list
+ 
+
+01:24:37 Build Finished. 0 errors, 0 warnings. (took 754ms)
+

@@ -1,0 +1,20 @@
+13:04:58 **** Build of configuration Debug for project 7_uart_modular ****
+make -j7 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Include -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Include -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/uart.d" -MT"Src/uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/uart.o"
+In file included from ../Src/uart.c:1:
+../Inc/uart.h:7:10: fatal error: stm32f4xx.h: No such file or directory
+    7 | #include "stm32f4xx.h"
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [Src/subdir.mk:28: Src/uart.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Src/main.c:3:10: fatal error: stm32f4xx.h: No such file or directory
+    3 | #include "stm32f4xx.h"
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [Src/subdir.mk:28: Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+
+13:04:59 Build Failed. 5 errors, 0 warnings. (took 533ms)
+

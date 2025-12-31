@@ -1,0 +1,22 @@
+01:57:11 **** Build of configuration Debug for project 10_adc_continuous_conversion2 ****
+make -j7 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Include -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/adc.d" -MT"Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/adc.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Include -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Include -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Include -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Src/uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DSTM32F446xx -c -I../Inc -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Include -I/Users/sheen/Documents/STM32-BareMetal-Workspace/chip_headers/CMSIS/Device/ST/STM32F4xx/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/uart.d" -MT"Src/uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/uart.o"
+arm-none-eabi-gcc -o "10_adc_continuous_conversion2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/sheen/Documents/STM32-BareMetal-Workspace/10_adc_continuous_conversion2/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="10_adc_continuous_conversion2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 10_adc_continuous_conversion2.elf
+ 
+arm-none-eabi-size  10_adc_continuous_conversion2.elf 
+arm-none-eabi-objdump -h -S 10_adc_continuous_conversion2.elf  > "10_adc_continuous_conversion2.list"
+   text	   data	    bss	    dec	    hex	filename
+   5404	     92	   1908	   7404	   1cec	10_adc_continuous_conversion2.elf
+Finished building: default.size.stdout
+ 
+Finished building: 10_adc_continuous_conversion2.list
+ 
+
+01:57:11 Build Finished. 0 errors, 0 warnings. (took 593ms)
+
