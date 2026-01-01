@@ -14,7 +14,6 @@
 
 
 #define AHB1EN_R_OFFSET			(0x30UL)
-//volatile means that the value can change and that compiler must read it (avoid optimizations) and then it treats the address as a number
 #define RCC_AHB1EN_R            (*(volatile unsigned int *)(RCC_BASE +  AHB1EN_R_OFFSET))
 
 #define MODE_R_OFFSET			(0x00UL)
@@ -36,19 +35,10 @@
  *  &=~(1U<<11) //  Set bit 11 to 0*/
 
 //note: U means unsigned int (guaranteed min size of 16 bits) and UL means unsigned long (guaranteed min size of 32bits) - guranteed mins are based on c standards
-//note (cont): for stm32f446 since the architecture is 32 bit both U and UL are 32 bits
-//but its good practice to differentiate esp since UL is commonly used for memory addresses and U is used for flags and bitmasks (1U<<10)
+//note (cont):
+//U is often
 
 
-//the mode register sets the function of the pin (input, general purpose output, alternate function, analog mode)
-//OD register is output data register and controls high and low state of the pin
-
-
-
-// |= is the bitwise or operator/
-// ^= is the XOR operator
-// &= is the bitwise AND Assignment
-// ~ is the bitwise Not operator
 
 int main(void)
 {
@@ -56,7 +46,7 @@ int main(void)
 	RCC_AHB1EN_R  |=  GPIOAEN;
 
 	/*2.Set PA5 as output pin*/
-	GPIOA_MODE_R  |= (1U<<10);  // Set bit 10 to 1 using bitwise left shift operator (<<)
+	GPIOA_MODE_R  |= (1U<<10);  // Set bit 10 to 1
 	GPIOA_MODE_R  &=~(1U<<11); //  Set bit 11 to 0
 
 	while(1)
