@@ -20,3 +20,6 @@ int main(void)
 
 	}
 }
+
+//uses header file to save work
+//note to self: its helpful to see how to include the header in the video

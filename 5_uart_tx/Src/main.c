@@ -40,7 +40,7 @@ void uar2_tx_init(void)
 	/*Enable clock access to gpioa */
 	RCC->AHB1ENR |= GPIOAEN;
 
-	/*Set PA2 mode to alternate function mode*/
+	/*Set PA2 mode to alternate function mode as it has a usart2 transmit alternate function */
 	GPIOA->MODER &=~(1U<<4);
 	GPIOA->MODER |= (1U<<5);
 
@@ -55,7 +55,7 @@ void uar2_tx_init(void)
 	/*Enable clock access to uart2 */
 	RCC->APB1ENR |= UART2EN;
 
-	/*Configure baudrate*/
+	/*Configure baudrate so sender and receiver are at same clock speed and also since no clock signal wire*/
 	uart_set_baudrate(USART2,APB1_CLK,UART_BAUDRATE);
 
 	/*Configure the transfer direction*/
@@ -68,18 +68,18 @@ void uar2_tx_init(void)
 }
 
 
-void uart2_write(int ch)
+void uart2_write(int ch) //puts ch in 32 bit format
 {
   /*Make sure the transmit data register is empty*/
 	while(!(USART2->SR & SR_TXE)){}
 
   /*Write to transmit data register*/
-	USART2->DR	=  (ch & 0xFF);
+	USART2->DR	=  (ch & 0xFF); //makes it so that only lower 8 bits are transmitted
 }
 
 
 
-
+//setting the baud rate (bits/sec in this context) by entering the the number of cycles/bit in the BRR
 static void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk,  uint32_t BaudRate)
 {
 	USARTx->BRR =  compute_uart_bd(PeriphClk,BaudRate);

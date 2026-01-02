@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdint.h>
 #include "stm32f4xx.h"
 
@@ -22,13 +21,6 @@ static uint16_t compute_uart_bd(uint32_t PeriphClk, uint32_t BaudRate);
 void uar2_tx_init(void);
 void uart2_write(int ch);
 
-
-int __io_putchar(int ch) //parses string character by character and transmits data when printf is called
-{
-	uart2_write(ch);
-	return ch;
-}
-
 int main(void)
 {
 
@@ -37,9 +29,8 @@ int main(void)
 
 	while(1)
 	{
-		printf("Hello from STM32F4........\n\r");
+		uart2_write('Y');
 	}
-
 }
 
 
@@ -49,7 +40,7 @@ void uar2_tx_init(void)
 	/*Enable clock access to gpioa */
 	RCC->AHB1ENR |= GPIOAEN;
 
-	/*Set PA2 mode to alternate function mode*/
+	/*Set PA2 mode to alternate function mode as it has a usart2 transmit alternate function */
 	GPIOA->MODER &=~(1U<<4);
 	GPIOA->MODER |= (1U<<5);
 
@@ -64,7 +55,7 @@ void uar2_tx_init(void)
 	/*Enable clock access to uart2 */
 	RCC->APB1ENR |= UART2EN;
 
-	/*Configure baudrate*/
+	/*Configure baudrate so sender and receiver are at same clock speed and also since no clock signal wire*/
 	uart_set_baudrate(USART2,APB1_CLK,UART_BAUDRATE);
 
 	/*Configure the transfer direction*/
@@ -83,12 +74,12 @@ void uart2_write(int ch) //puts ch in 32 bit format
 	while(!(USART2->SR & SR_TXE)){}
 
   /*Write to transmit data register*/
-	USART2->DR	=  (ch & 0xFF); //makes it so that only lower 8 bits are transmitted
+	USART2->DR	=  (ch & 0xFF);
 }
 
 
 
-
+//setting the baud rate (bits/sec in this context) by entering the the number of cycles/bit in the BRR
 static void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk,  uint32_t BaudRate)
 {
 	USARTx->BRR =  compute_uart_bd(PeriphClk,BaudRate);

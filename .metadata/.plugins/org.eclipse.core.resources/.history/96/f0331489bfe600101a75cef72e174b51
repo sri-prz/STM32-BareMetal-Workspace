@@ -23,7 +23,7 @@ void uar2_tx_init(void);
 void uart2_write(int ch);
 
 
-int __io_putchar(int ch) //parses string character by character and transmits data when printf is called
+int __io_putchar(int ch)
 {
 	uart2_write(ch);
 	return ch;

@@ -23,8 +23,8 @@
 
 typedef struct
 {
-  volatile uint32_t DUMMY[12];
-  volatile uint32_t AHB1ENR;       /*!< RCC AHB1 peripheral clock register,                          Address offset: 0x30 */
+  volatile uint32_t DUMMY[12]; //array of size 12 is 48 bytes
+  volatile uint32_t AHB1ENR;       /*!< RCC AHB1 peripheral clock register,         Address offset: 0x30 */
 
 } RCC_TypeDef;
 
@@ -40,7 +40,7 @@ typedef struct
 
 
 
-#define RCC		    ((RCC_TypeDef*) RCC_BASE)
+#define RCC		    ((RCC_TypeDef*) RCC_BASE) //allows you to use the structs below in that manner
 #define GPIOA		((GPIO_TypeDef*)GPIOA_BASE)
 
 
@@ -69,5 +69,6 @@ int main(void)
 	}
 }
 
-
+//same code as last time but uses structs to show how to reduce creating offsets and such
+//we will use a header file that has predefined structs for us for the rest of the projects
 

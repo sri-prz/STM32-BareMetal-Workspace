@@ -34,7 +34,7 @@ int main(void)
 	{
 
 		/*Check if BTN is pressed*/
-		if(GPIOC->IDR & BTN_PIN) //idr is input data register
+		if(GPIOC->IDR & BTN_PIN)
 		{
 			/*Turn on led*/
 		GPIOA->BSRR = LED_PIN;
