@@ -56,7 +56,7 @@ void adxl_init (void)
 	//enable SPI gpio module
 	spi_gpio_init();
 	//config spi router
-	spi_config();
+	spi1_config();
 
 	//set data format range to 4g
 	adxl_write(DATA_FORMAT_R, FOUR_G);
