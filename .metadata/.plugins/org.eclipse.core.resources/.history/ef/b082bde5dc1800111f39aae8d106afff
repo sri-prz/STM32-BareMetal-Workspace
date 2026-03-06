@@ -1,0 +1,54 @@
+#include "esp32.h"
+
+
+
+void esp32_read (uint8_t address, uint8_t * rxdata)
+{
+
+
+	//set read operation
+	address |= READ_OPERATION;
+	//enable multi byte
+	address |= MULTI_BYTE_EN;
+
+	//pull cs line low to enable slave
+	cs_enable();
+
+	//send address
+	spi1_transmit(&address,1);
+
+	//read 6 bytes
+	spi1_receive(rxdata,6);
+
+	//pull cs line high to disable slave
+	cs_disable();
+
+
+
+}
+
+void esp32_write(uint8_t address, uint8_t value)
+{
+	uint8_t data[2];
+
+	//enable multi byte, place address into buffer
+	data[0] = address|MULTI_BYTE_EN;
+	data[1] = value;
+
+	//pull cs line low to enable slave
+	cs_enable();
+
+	//transmit data and address
+	spi1_transmit(data,2);
+
+	//pull cs line high to disable slave
+	cs_disable();
+
+}
+
+void esp32_init(void){
+	//enable spi gpio module
+	spi_gpio_init();
+	//configure SPI1 router
+	spi1_config();
+}

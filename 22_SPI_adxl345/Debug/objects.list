@@ -1,4 +1,5 @@
 "./Src/adxl345.o"
+"./Src/esp32.o"
 "./Src/i2c.o"
 "./Src/main.o"
 "./Src/spi.o"

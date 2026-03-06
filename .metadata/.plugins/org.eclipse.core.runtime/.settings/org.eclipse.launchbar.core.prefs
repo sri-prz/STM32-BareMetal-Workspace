@@ -13,6 +13,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:16_uart_rx_interrupt/activeLaun
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:18_Systick_Interrupt/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:19_Timer_Interrupt/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:20_uart_tx_dma/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:22_SPI_adxl345/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_gpio_output/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_gpio_output/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:8_uart_rx/activeLaunchMode=debug

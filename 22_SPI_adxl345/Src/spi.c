@@ -109,9 +109,9 @@ void spi1_transmit(uint8_t *data, uint32_t size)
 	//wait for busy flag to be reset
 	while((SPI1->SR & (SR_BUSY))){}
 
-	//clear overrun flag by reading data register
+	//clear overrun flag by reading data register and status register
 	temp = SPI1->DR;
-	temp = SPI1->DR;
+	temp = SPI1->SR;
 }
 
 

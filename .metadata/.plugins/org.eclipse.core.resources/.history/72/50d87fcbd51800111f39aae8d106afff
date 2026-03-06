@@ -1,0 +1,9 @@
+#include "esp32.h"
+
+void esp32_read(uint8_t address, uint8_t * rxdata){
+
+}
+
+void esp32_write(uint8_t address, uint8_t value){
+
+}
